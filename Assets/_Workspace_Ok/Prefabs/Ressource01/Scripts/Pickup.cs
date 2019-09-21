@@ -14,12 +14,14 @@ public class Pickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
 
-    void OnCollisionEnter(Collision collision)
+    }
+    void OnCollisionEnter (Collision col)
     {
-        Destroy(this.gameObject);
+        if(col.gameObject.name == "Spieler")
+        {
+            Destroy(gameObject);
+        }
     }
 
     
