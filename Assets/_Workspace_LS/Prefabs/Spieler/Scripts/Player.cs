@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    /*var anteil = 0.05f; //5% an jeder Kante
+    var xSpace = Screen.width * anteil;
+    var ySpace = Screen.height * anteil;*/
     public float walkSpeed = 6f;
     public float speedSmoothing = 10f;
     // Start is called before the first frame update
@@ -12,11 +15,10 @@ public class Player : MonoBehaviour
         transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationZ;
         transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX;
     }
-
-    // Update is called once per frame
+       // Update is called once per frame
     void Update()
     {
-        Rigidbody.Zero;
+        transform.rotation = Quaternion.identity;
         if(Input.GetKey(KeyCode.W))
             transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
         if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift))
@@ -29,5 +31,6 @@ public class Player : MonoBehaviour
             transform.Translate(Vector3.right * walkSpeed * Time.deltaTime);
         if(Input.GetKey(KeyCode.Space))
             transform.Translate(Vector3.up * walkSpeed * Time.deltaTime);
+        
     }
 }
