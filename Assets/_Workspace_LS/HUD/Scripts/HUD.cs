@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HUD : MonoBehaviour
 {
+    [SerializeField] public bool Active = false;
+    public GameObject Inventar;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +17,9 @@ public class HUD : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I)) 
         {
-            gameObject.SetActive(!gameObject.activeSelf);
-        }   
+            Active = !(Active);
+            Inventar.SetActive(Active);
+        } 
+
     }  
 }
